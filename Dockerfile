@@ -1,13 +1,16 @@
 # Use latest jboss/base-jdk:8 image as the base
 #FROM jboss/base-jdk:8
-FROM dboss/docker-jboss-eap
-ADD SampleJerseyApp-1.0-SNAPSHOT.war /opt/jbossas/standalone/deployments
+# Use latest jboss/base-jdk:8 image as the base
+#FROM jboss/base-jdk:8
+#FROM dboss/docker-jboss-eap
+FROM wrnolasco/jboss
+ADD SampleJerseyApp-1.0-SNAPSHOT.war /opt/jboss/wildfly/standalone/deployments
 
 # Set the WILDFLY_VERSION env variable
 #ENV WILDFLY_VERSION 10.1.0.Final
 #ENV WILDFLY_SHA1 9ee3c0255e2e6007d502223916cefad2a1a5e333
 #ENV JBOSS_HOME /opt/jboss/wildfly
-RUN yum clean all
+#RUN yum clean all
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
 #RUN cd $HOME \
